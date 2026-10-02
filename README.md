@@ -1,0 +1,2 @@
+# nodespirit
+nodespirit_plugin
