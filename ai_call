@@ -23,3 +23,24 @@ function kimi(question)
     end
     return answer
 end
+function ds(question)
+    runApp("com.deepseek.chat")
+    while find(R():desc("开启新对话")) == nil do
+        sleep(500)
+    end
+    sleep(1000)
+    click(R():desc("开启新对话"):getParent())
+    a=find(R():text("发消息或按住说话"))
+    click((a.rect.left+a.rect.right)/2,(a.rect.top+a.rect.bottom)/2)
+    input(R():text("发消息"),question)
+    sleep(1000)
+    click(R():desc("发送"):getParent():getParent())
+    --等待回复
+    while find(R():desc("重新生成")) == nil do
+        sleep(500)
+    end
+    sleep(100)
+    answer=find(R():path("/FrameLayout/ComposeView/View/View/View/View/View/View/View/View/View/View/TextView"))
+    sleep(1000)
+    return answer.text
+end
