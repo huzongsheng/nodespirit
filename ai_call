@@ -23,6 +23,7 @@ function kimi(question)
     end
     return answer
 end
+
 function ds(question)
     runApp("com.deepseek.chat")
     while find(R():desc("开启新对话")) == nil do
@@ -30,8 +31,10 @@ function ds(question)
     end
     sleep(1000)
     click(R():desc("开启新对话"):getParent())
+    sleep(500)
     a=find(R():text("发消息或按住说话"))
     click((a.rect.left+a.rect.right)/2,(a.rect.top+a.rect.bottom)/2)
+    sleep(500)
     input(R():text("发消息"),question)
     sleep(1000)
     click(R():desc("发送"):getParent():getParent())
