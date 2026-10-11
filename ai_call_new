@@ -1,0 +1,43 @@
+# __init__.py 为初始入口文件,工程代码的入口文件.
+
+# 导入动作库常用函数
+
+from ascript.android.action import click, slide, Touch, gesture
+
+# 导入控件检索相关
+
+from ascript.android.node import Selector
+
+# 导入图色相关
+
+from ascript.android.screen import capture, FindColors, FindImages, Ocr
+
+# 导入系统相关
+
+from ascript.android import system
+
+# 环境设备相关
+from ascript.android.system import Clipboard
+
+from ascript.android.system import R, Device
+import time
+from ascript.android import action
+
+
+
+
+def ds(question):
+    Selector(0).desc("开启新对话").find().parent(1).click()
+    time.sleep(0.1)
+    a=Selector(0).text("发消息或按住说话").find()
+    if a:
+        click(a.rect.centerX(),a.rect.centerY())
+    time.sleep(1.5)
+    Selector(0).text("发消息").input(question).find()
+    time.sleep(0.5)
+    Selector(0).desc("发送").find().parent(2).click()
+    while Selector(0).desc("复制").find()==None:
+    
+      time.sleep(1)
+    print(Selector(0).path("/FrameLayout/ComposeView/View/View/View/View/View/View/View/View/View/View/TextView").find().text)
+    print("ceui")
