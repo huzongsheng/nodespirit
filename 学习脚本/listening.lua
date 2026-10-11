@@ -1,0 +1,10 @@
+click(R():path("/FrameLayout/ViewPager/FrameLayout/ImageView"))
+sleep(300)
+click(R():path("/FrameLayout/GridView/RelativeLayout"):hasChild(R():text("广东")))--点击广东
+sleep(300)
+--click(R():path("/FrameLayout/ViewPager/ViewGroup/RecyclerView/FrameLayout/RecyclerView/LinearLayout"):target(3))--点击广东新闻联播
+click(R():path("/FrameLayout/ViewPager/ViewGroup/RecyclerView/FrameLayout/RecyclerView/LinearLayout"):hasChild(R():text("广东新闻广播")))
+sleep(300)
+back()
+sleep(600)
+--视听
